@@ -1,7 +1,30 @@
 #include <iostream>
-#include<string>
+#include <string>
 
 using namespace std;
+
+bool checkYear(int year)
+{
+	if (year % 400 == 0)
+	{
+		return true;
+	}
+
+	else if (year % 100 == 0)
+	{
+		return false;
+	}
+
+	else if (year % 4 == 0)
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
+}
 
 int main()
 {
@@ -15,20 +38,12 @@ int main()
 	int y = 0;
 	int r = 0;
 	int m = 0;
-	int leapYear;
+	// int leapYear;
 
-    cout << "What is the month." << endl;
+	cout << "What is the month." << endl;
 	cin >> month;
 
-	cout << "What is the day of the month." << endl;
-	cin >> day;
-
-	cout << "What is the year." << endl;
-	cin >> year;
-
-
-
-    if (month == "January" || month == "October")
+	if (month == "January" || month == "October")
 	{
 		m = 0;
 	}
@@ -60,6 +75,17 @@ int main()
 	{
 		m = 12;
 	}
+	else
+	{
+		cout << month << " Does not exist" << endl;
+		return -1;
+	}
+
+	cout << "What is the day of the month." << endl;
+	cin >> day;
+
+	cout << "What is the year." << endl;
+	cin >> year;
 
 	z = year / 100;
 
@@ -68,12 +94,12 @@ int main()
 	y = year % 100;
 	r = y % 12;
 
-	year = y / 12 + r + (r / 4);
-    
-	weekDay = (day + centralValue + year + m) % 7;
+	// Change year because yaer 2 was getting changed
+	int year2 = y / 12 + r + (r / 4);
 
-	leapYear = (year % 4 == 0 && year % 400 != 0);
-	
+	weekDay = (day + centralValue + year2 + m) % 7;
+
+	bool leapYear = checkYear(year);
 
 	if (leapYear)
 	{
@@ -84,26 +110,32 @@ int main()
 		}
 	}
 
-
-	switch(weekDay) {
-		case 0:
-		  cout << "The day of the week is " << "Sunday"<< "." << endl;
-		case 1:
-		  cout << "The day of the week is " << "Monday"<< "." << endl;
-		case 2:
-		  cout << "The day of the week is " << "Tuesday"<< "." << endl;
-		case 3:
-		  cout << "The day of the week is " << "Wednesday"<< "." << endl;
-		case 4:
-		  cout << "The day of the week is " << "Thursday"<< "." << endl;
-		case 5:
-		  cout << "The day of the week is " << "Friday"<< "." << endl;
-		case 6:
-		    cout << "The day of the week is " << "Saturday"<< "." << endl;
-		default:
-			cout << "Error in the calculation" << endl;
+	switch (weekDay)
+	{
+	case 0:
+		cout << "The day of the week is " << "Sunday" << "." << endl;
+		break;
+	case 1:
+		cout << "The day of the week is " << "Monday" << "." << endl;
+		break;
+	case 2:
+		cout << "The day of the week is " << "Tuesday" << "." << endl;
+		break;
+	case 3:
+		cout << "The day of the week is " << "Wednesday" << "." << endl;
+		break;
+	case 4:
+		cout << "The day of the week is " << "Thursday" << "." << endl;
+		break;
+	case 5:
+		cout << "The day of the week is " << "Friday" << "." << endl;
+		break;
+	case 6:
+		cout << "The day of the week is " << "Saturday" << "." << endl;
+		break;
+	default:
+		cout << "Error in the calculation" << endl;
 	}
 
-
-  return 0;
+	return 0;
 }

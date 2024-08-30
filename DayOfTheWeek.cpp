@@ -78,7 +78,6 @@ int main()
 
 	if (leapYear)
 	{
-        //cout <<  "help" << endl;
 		weekDay -= 1;
 		if (weekDay == -1)
 		{
@@ -86,34 +85,24 @@ int main()
 		}
 	}
 
-	if (weekDay == 0)
-	{
-		cout << "The day of the week is " << "Sunday"<< "." << endl;
-	}
-	else if (weekDay == 1)
-	{
-		 cout << "The day of the week is " << "Monday"<< "." << endl;
-	}
-	else if (weekDay == 2)
-	{
-		cout << "The day of the week is " << "Tuesday"<< "." << endl;
-	}
-	else if (weekDay == 3)
-	{
-		cout << "The day of the week is " << "Wednesday"<< "." << endl;
-	}
-	else if (weekDay == 4)
-	{
-		 cout << "The day of the week is " << "Thursday"<< "." << endl;
-        
-	}
-	else if (weekDay == 5)
-	{
-	    cout << "The day of the week is " << "Friday"<< "." << endl;
-	}
-	else if (weekDay == 6)
-	{
-        cout << "The day of the week is " << "Saturday"<< "." << endl;
+
+	switch(weekDay) {
+		case 0:
+		  cout << "The day of the week is " << "Sunday"<< "." << endl;
+		case 1:
+		  cout << "The day of the week is " << "Monday"<< "." << endl;
+		case 2:
+		  cout << "The day of the week is " << "Tuesday"<< "." << endl;
+		case 3:
+		  cout << "The day of the week is " << "Wednesday"<< "." << endl;
+		case 4:
+		  cout << "The day of the week is " << "Thursday"<< "." << endl;
+		case 5:
+		  cout << "The day of the week is " << "Friday"<< "." << endl;
+		case 6:
+		    cout << "The day of the week is " << "Saturday"<< "." << endl;
+		default:
+			cout << "Error in the calculation" << endl;
 	}
 
 
